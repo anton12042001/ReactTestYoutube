@@ -1,0 +1,31 @@
+.header{
+    border: 1px solid black;
+    height: 50px;
+    display: flex;
+}
+.userFunctional{
+    align-items: center;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 0 350px;
+}
+.transitionAuthorization{
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 400px 0 0 ;
+    width: 100%;
+}
+.buttonAuthorization{
+    height: 100%;
+    border: inherit;
+    background: inherit;
+}
+.userFunctional button{
+    border: inherit;
+    height: 100%;
+    padding: 10px;
+    background: inherit;
+}

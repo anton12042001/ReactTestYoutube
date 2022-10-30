@@ -1,0 +1,13 @@
+.popapItem{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 170px;
+    left: 400px;
+    background: white;
+    border: 1px solid black;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

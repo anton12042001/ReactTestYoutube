@@ -1,0 +1,16 @@
+.videosContainer{
+    border: 1px solid black;
+    padding:50px 0 0 0;
+    width: 1350px;
+    margin: 0 auto;
+}
+
+.showVideo{
+    width: 320px;
+}
+
+.videosArray{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

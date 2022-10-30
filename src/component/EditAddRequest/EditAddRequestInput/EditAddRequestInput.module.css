@@ -1,0 +1,21 @@
+.changeInpitTitle{
+    margin: 15px 0 0 0;
+}
+.editAddRequestContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+.editAddRequest{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
