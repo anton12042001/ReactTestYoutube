@@ -3,9 +3,9 @@ import {Controller, useForm} from "react-hook-form";
 import MyInputSearch from "../../UI/MyInputSearch/MyInputSearch";
 import {useSelector} from "react-redux";
 import cl from './SearchInput.module.css'
+import Loader from "../../UI/Loader/Loader";
 
 const SearchInput = ({setModal,showButtonFavorite,saveRequest, youtubeTerm,setInputValue}) => {
-
     const {currentRequest} = useSelector(state => state.videos)
 
     const saveInputValue = (inputValue) => {
@@ -23,6 +23,10 @@ const SearchInput = ({setModal,showButtonFavorite,saveRequest, youtubeTerm,setIn
 
     }
 
+
+    if(!currentRequest && showButtonFavorite){
+        return  <Loader/>
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

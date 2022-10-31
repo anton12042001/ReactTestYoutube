@@ -2,7 +2,8 @@ import React from 'react';
 import cl from './EditAddRequestPopap.module.css'
 import EditAddRequestInput from "../EditAddRequestInput/EditAddRequestInput";
 
-const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,idItems,nameRequest,showButtonFavorite,setModal,inputValue,saveRequest}) => {
+const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,idItems,nameRequest,
+                                 showButtonFavorite,setModal,inputValue,saveRequest}) => {
 
 
     return (
@@ -17,7 +18,8 @@ const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,i
                     showButtonFavorite={showButtonFavorite}
                     setModal={setModal}
                     inputValue={inputValue}
-                    saveRequest={saveRequest}/>
+                    saveRequest={saveRequest}
+                    />
             </div>
         </div>
     );

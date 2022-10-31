@@ -2,9 +2,14 @@ import React from 'react';
 import {Controller, useForm} from "react-hook-form";
 import MyInputEditAddRequest from "../../UI/MyInputEditAddRequest/MyInputEditAddRequest";
 import cl from './EditAddRequestInput.module.css'
+import RangeSliderContainer from "../../UI/RangeSlider/RangeSliderContainer";
+import {useState} from "react";
+import MySelectedEditAddRequest from "../../UI/MySelectedEditAddRequest/MySelectedEditAddRequest";
 
-const EditAddRequestInput = ({idItems,editRequestId,setShowPopapChange,showPopapChange, nameRequest, showButtonFavorite, setModal,inputValue,saveRequest}) => {
-
+const EditAddRequestInput = ({idItems, editRequestId, setShowPopapChange, showPopapChange, nameRequest,
+                                 showButtonFavorite, setModal, inputValue, saveRequest, }) => {
+    const [sliderValue, setSliderValue] = useState(12);
+    const [valueSelect,setValueSelet] = useState("relevance")
 
     const {
         handleSubmit,
@@ -13,14 +18,13 @@ const EditAddRequestInput = ({idItems,editRequestId,setShowPopapChange,showPopap
     } = useForm();
 
     const onSubmit = (data) => {
-        if(showButtonFavorite){
-            saveRequest(data.request)
+        if (showButtonFavorite) {
+            saveRequest(data.request, sliderValue, valueSelect) //сохранение
         }
-        if(idItems){
-            debugger
-            editRequestId(data.request)
+        if (idItems) {
+            editRequestId(data.request, sliderValue, valueSelect) //редакирование
         }
-        reset()
+
     }
 
 
@@ -28,7 +32,7 @@ const EditAddRequestInput = ({idItems,editRequestId,setShowPopapChange,showPopap
         if (showButtonFavorite) {
             setModal(false)
         }
-        if(showPopapChange){
+        if (showPopapChange) {
             setShowPopapChange(false)
         }
     }
@@ -41,29 +45,28 @@ const EditAddRequestInput = ({idItems,editRequestId,setShowPopapChange,showPopap
             <form className={cl.editAddRequest} onSubmit={handleSubmit(onSubmit)}>
                 <Controller
                     render={({field, fieldState}) => {
-                        return <MyInputEditAddRequest type={"text"}
-                                                      label={"Запрос"}
-                                                      placeholder={"Введите запрос"}
-                                                      disabled={(showButtonFavorite) && true}
-                                                      field={field}
-                        />;
-                    }}
-                    defaultValue={(showButtonFavorite) ? inputValue : nameRequest }
+                        return <MyInputEditAddRequest type={"text"} label={"Запрос"} placeholder={"Введите запрос"}
+                                                      disabled={(showButtonFavorite) && true} field={field}/>;}}
+                    defaultValue={(showButtonFavorite) ? inputValue : nameRequest}
                     control={control}
                     name="request"
 
                 />
                 <Controller
                     render={({field, fieldState}) => {
-                        return <MyInputEditAddRequest type={"text"}
-                                                      label={"Название"}
-                                                      placeholder={"Укажите название"}
-                                                      field={field}/>;
-                    }}
+                        return <MyInputEditAddRequest type={"text"} label={"Название"} placeholder={"Укажите название"} field={field}/>;}}
                     control={control}
                     name="nameRequest"
                 />
+                <Controller
+                    render={({field, fieldState}) => {
+                        return <MySelectedEditAddRequest type={"text"} setValueSelet={setValueSelet} label={"Сортировка по"} field={field}/>;}}
+                    control={control}
+                    name="sorting"
+                />
 
+
+                <RangeSliderContainer sliderValue={sliderValue} setSliderValue={setSliderValue}/>
                 <div>
                     <button onClick={utils}>{showButtonFavorite ? <div>Не сохранять</div> :
                         <div>Не изменять</div>}</button>

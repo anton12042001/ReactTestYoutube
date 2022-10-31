@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjectSocialNetwork" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -53,6 +53,7 @@
       <recent name="C:\Users\ahtoh\WebstormProjects\app\ReactTest\src\component\UI\Loader" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ahtoh\WebstormProjects\app\ReactTestYoutube\src\component\utils\utilsVideosRequest" />
       <recent name="C:\Users\ahtoh\WebstormProjects\app\ReactTest\src\component\EditAddRequest" />
       <recent name="C:\Users\ahtoh\WebstormProjects\app\ReactTest\src\component\utils\router" />
       <recent name="C:\Users\ahtoh\WebstormProjects\app\ReactTest\src\component\utils" />
@@ -74,6 +75,8 @@
       <workItem from="1666832097893" duration="12050000" />
       <workItem from="1667033249946" duration="6086000" />
       <workItem from="1667091619843" duration="25360000" />
+      <workItem from="1667146158153" duration="164000" />
+      <workItem from="1667178625659" duration="25149000" />
     </task>
     <servers />
   </component>

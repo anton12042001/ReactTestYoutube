@@ -2,9 +2,10 @@ import {doc, getFirestore, updateDoc, getDoc,collection,addDoc} from "firebase/f
 import {initializeApp} from "firebase/app";
 import {firebaseConfig} from "../../firebase";
 import {setFavoriteQueriesID} from "../../reduxToolkit/slices/favoriteQueriesIDSlices";
+import {setFavoriteQueries} from "../../reduxToolkit/slices/favoriteQueriesSlices";
+import {setCurrentRequest} from "../../reduxToolkit/slices/videosSlice";
 
-export const saveRequestAPI = async (dispatch, id,request,setModal) => {
-    debugger
+export const saveRequestAPI = async (dispatch, id,request,sliderValue,setModal,sorting) => {
 
    const saveRequestUser = []
     const app = initializeApp(firebaseConfig);
@@ -15,7 +16,8 @@ export const saveRequestAPI = async (dispatch, id,request,setModal) => {
 
     const userRequestRef = await addDoc(collection(db, "request"), {  //Создание коллекции сохраненных запросов
         saveRequest: request,                                                   //для определенного пользователя
-        numberRequest: 12
+        numberRequest: sliderValue,
+        sorting:sorting
     })
     if (docSnap.exists()) {                                                     //Получение id сохраненных запросов пользователя с сервера
         docSnap.data().saveRequest.map(r => {                                   // и сохранение в массив
@@ -26,6 +28,14 @@ export const saveRequestAPI = async (dispatch, id,request,setModal) => {
     await updateDoc(docRef, {                                              //Загрузка на сервер сохраненных запросов
         saveRequest:saveRequestUser
     });
+    const middleElement = {
+        saveRequest: request,                                                   //для определенного пользователя
+        numberRequest: sliderValue,
+        sorting:sorting,
+        id:docSnap.data().id,
+    }
     dispatch(setFavoriteQueriesID(saveRequestUser))
+    dispatch(setCurrentRequest(request))
+    dispatch(setFavoriteQueries(middleElement))
     setModal(false)                                                             //Закрытие модального окна
 }

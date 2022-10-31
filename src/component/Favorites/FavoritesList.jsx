@@ -2,25 +2,38 @@ import React from 'react';
 import cl from "./Favorites.module.css";
 import {useState} from "react";
 
-const FavoritesList = ({saveRequest,id,getId,showPopapChange}) => {
+const FavoritesList = ({saveRequest, id, getId, showPopapChange, youtubeSearchOrder,sorting,deleteFavoritesRequest}) => {
     const [mouseOverItem, setMouseOverItem] = useState(false)
 
 
     const changeStateMouse = () => {
-        if(!showPopapChange){
+        if (!showPopapChange) {
             setMouseOverItem(true)
         }
     }
 
+    const getIdItems = (id) => {
+        youtubeSearchOrder(id)
+    }
+
+    const deleteIdItems = (id) => {
+        deleteFavoritesRequest(id)
+    }
+
     return (
         <div className={(mouseOverItem) ? cl.favoritesItemContainerActive : cl.favoritesItemContainer}>
-            <div className={cl.favoritesItem} onMouseOut={() => setMouseOverItem(false)} onMouseEnter={changeStateMouse}>
+            <div onClick={() => getIdItems(id)} className={cl.favoritesItem} onMouseOut={() => setMouseOverItem(false)}
+                 onMouseEnter={changeStateMouse}>
                 <div className={cl.favoritesItemTitle}>
                     {saveRequest}
-                    <div>
-                        <button onClick={() => getId(id,saveRequest)}>Изменить</button>
-                        <button>Удалить</button>
-                    </div>
+                </div>
+            </div>
+            <div className={cl.blockButtonFuntional} >
+                <div>
+                    <button onClick={() => getId(id, saveRequest,sorting)}>Изменить</button>
+                </div>
+                <div>
+                    <button onClick={() => deleteIdItems(id)} >Удалить</button>
                 </div>
             </div>
         </div>

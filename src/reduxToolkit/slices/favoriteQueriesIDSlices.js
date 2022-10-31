@@ -12,11 +12,11 @@ const favoriteQueriesIDSlices = createSlice({
         setFavoriteQueriesID(state,action) {
             state.favoriteQueriesID = action.payload
         },
-        removeFavoriteQueries(state) {
+        removeFavoriteQueriesID(state) {
             state.favoriteQueriesID = []
         }
     },
 })
-export const {setFavoriteQueriesID,removeFavoriteQueries} = favoriteQueriesIDSlices.actions
+export const {setFavoriteQueriesID,removeFavoriteQueriesID} = favoriteQueriesIDSlices.actions
 
 export default  favoriteQueriesIDSlices.reducer

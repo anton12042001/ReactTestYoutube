@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import SearchInput from "../Search/SearchInput/SearchInput";
 import {useDispatch, useSelector} from "react-redux";
 import Videos from "./Videos";
@@ -11,20 +11,23 @@ import EditAddRequestPopap from "../EditAddRequest/EditAddRequestPopap/EditAddRe
 
 
 const VideosContainer = () => {
-
-    const {videos} = useSelector(state => state.videos)
+    const {videos, currentRequest} = useSelector(state => state.videos)
     const {id} = useSelector(state => state.user)
     const dispatch = useDispatch()
     const [showButtonFavorite, setShowButtonFavorite] = useState(true)
-    const [loadSaveRequest,setLoadSaveRequest] = useState(false)
-    const [modal,setModal] = useState(false)
-    const [inputValue,setInputValue] = useState('')
+    const [loadSaveRequest, setLoadSaveRequest] = useState(false)
+    const [modal, setModal] = useState(false)
+    const [inputValue, setInputValue] = useState('')
+
+
+    useEffect(() => {
+        setInputValue(currentRequest)
+    }, [currentRequest])
 
 
 
-    const saveRequest = (request) => {
-        debugger
-        saveRequestAPI(dispatch, id,request,setModal)
+    const saveRequest = (request, sliderValue, sorting) => {
+        saveRequestAPI(dispatch, id, request, sliderValue, setModal, sorting)
             .then(() => {
                 setLoadSaveRequest(true)
             })
@@ -37,8 +40,8 @@ const VideosContainer = () => {
     }
 
 
-    if(videos.length === 0){
-        return  <Loader/>
+    if (videos.length === 0) {
+        return <Loader/>
     }
 
 
@@ -51,7 +54,9 @@ const VideosContainer = () => {
                 youtubeTerm={youtubeTerm}
                 setInputValue={setInputValue}/>
 
-            {modal && <EditAddRequestPopap setModal={setModal} showButtonFavorite={showButtonFavorite} inputValue={inputValue} saveRequest={saveRequest} /> }
+            {modal &&
+                <EditAddRequestPopap setModal={setModal} showButtonFavorite={showButtonFavorite} inputValue={inputValue}
+                                     saveRequest={saveRequest}/>}
             {loadSaveRequest && <div>Запрос успешно сохранен</div>}
 
             <div className={cl.videosArray}>

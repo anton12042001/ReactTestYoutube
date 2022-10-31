@@ -4,7 +4,8 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {removeUserInfo} from "../../reduxToolkit/slices/userSlice";
 import {removeVideoInfo} from "../../reduxToolkit/slices/videosSlice";
-import {removeFavoriteQueries} from "../../reduxToolkit/slices/favoriteQueriesIDSlices";
+import {removeFavoriteQueriesID} from "../../reduxToolkit/slices/favoriteQueriesIDSlices";
+import {removeFavoriteQueries} from "../../reduxToolkit/slices/favoriteQueriesSlices";
 
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
     const removeUser = () => {
         dispatch(removeUserInfo())
         dispatch(removeVideoInfo())
+        dispatch(removeFavoriteQueriesID())
         dispatch(removeFavoriteQueries())
         navigate('/authorization')
     }

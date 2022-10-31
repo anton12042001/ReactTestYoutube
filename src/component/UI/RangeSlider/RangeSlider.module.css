@@ -1,0 +1,13 @@
+.rangeSlider{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0 15px 0;
+}
+.RangeSliderValue{
+    margin: 0 0  0 55px;
+    border: 1px solid black;
+    padding: 5px 15px 5px 15px;
+}
+.sliderInput{
+    width: 200px;
+}
