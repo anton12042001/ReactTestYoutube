@@ -1,4 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
+import cl from './MyInputSearch.module.css'
+import {useLocation} from "react-router-dom";
 
 
 const MyInputSearch = (props) => {
@@ -6,6 +8,7 @@ const MyInputSearch = (props) => {
     const {fieldState} = props
     const inputRef = useRef()
     const [valueInput,setValueInput] = useState('')
+    const location = useLocation()
 
     useEffect(() => {
         if(props.setInputValue){
@@ -18,15 +21,14 @@ const MyInputSearch = (props) => {
 
 
     return (
-        <div>
             <input
+                className={cl.input}
                 placeholder={props.placeholder}
                 {...fieldState}
                 {...field}
                 type={props.type}
                 ref={inputRef}
             />
-        </div>
     );
 };
 

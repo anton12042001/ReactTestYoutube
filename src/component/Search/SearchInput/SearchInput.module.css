@@ -1,3 +1,92 @@
-.formContainer{
+.formContainer {
     display: flex;
+    flex-direction: column;
+    max-width: 686px;
+
+}
+
+.formContainerVideos {
+    display: flex;
+    flex-direction: column;
+    max-width: 1040px;
+    width: 100%;
+    margin: 0 0 40px 0;
+}
+
+.formTitle {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 52px;
+    color: #000000;
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+.formTitleVideos {
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 52px;
+    color: #000000;
+    text-align: center;
+    margin: 0 0 40px 0;
+
+}
+
+.inputContainer {
+    position: relative;
+    max-width: 686px;
+    display: flex;
+    max-height: 52px;
+    height: 100%;
+}
+
+.inputContainerVideos {
+    position: relative;
+    max-width: 1040px;
+    display: flex;
+    max-height: 52px;
+    height: 100%;
+
+}
+
+.buttonSearchRequest {
+    background: #1390E5;
+    border: inherit;
+    border-radius: 0px 10px 10px 0px;
+    height: 52px;
+    width: 150px;
+}
+
+.searchButtonSpan {
+    height: 52px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+.buttonFavorite {
+    position: absolute;
+    right: 165px;
+    top: 14px;
+}
+
+.buttonFavorite button {
+    border: inherit;
+    background: inherit;
+}
+
+@media (max-width: 767px) {
+    .formContainer {
+        max-width: 304px;
+    }
+
+    .searchButtonSpan {
+        font-weight: 400;
+        font-size: 16px;
+    }
 }

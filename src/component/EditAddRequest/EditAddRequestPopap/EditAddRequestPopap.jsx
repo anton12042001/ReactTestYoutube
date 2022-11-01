@@ -3,7 +3,7 @@ import cl from './EditAddRequestPopap.module.css'
 import EditAddRequestInput from "../EditAddRequestInput/EditAddRequestInput";
 
 const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,idItems,nameRequest,
-                                 showButtonFavorite,setModal,inputValue,saveRequest}) => {
+                                 showButtonFavorite,setModal,inputValue,saveRequest,sortingValue}) => {
 
 
     return (
@@ -19,6 +19,7 @@ const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,i
                     setModal={setModal}
                     inputValue={inputValue}
                     saveRequest={saveRequest}
+                    sortingValue={sortingValue}
                     />
             </div>
         </div>

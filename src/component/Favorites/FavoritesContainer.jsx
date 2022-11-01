@@ -46,15 +46,16 @@ const FavoritesContainer = () => {
     }
 
 
-    const editRequest = (idItems, request, sliderValue, sorting) => {
-        editExistingRequestAPI(idItems, request, sliderValue, sorting)
+    const editRequest = (idItems, request, sliderValue, sortingValue) => {
+        editExistingRequestAPI(idItems, request, sliderValue, sortingValue)
             .then(() => {
                 dispatch(removeFavoriteQueries())
                 favoriteQueries.map(i => {
                     const middleElement = {
                         id: i.id,
                         numberRequest: i.numberRequest,
-                        saveRequest: i.saveRequest
+                        saveRequest: i.saveRequest,
+                        sorting:i.sorting
                     }
                     if (i.id === idItems) {
                         middleElement.saveRequest = request

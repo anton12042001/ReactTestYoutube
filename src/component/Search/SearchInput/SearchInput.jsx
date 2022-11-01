@@ -4,14 +4,19 @@ import MyInputSearch from "../../UI/MyInputSearch/MyInputSearch";
 import {useSelector} from "react-redux";
 import cl from './SearchInput.module.css'
 import Loader from "../../UI/Loader/Loader";
+import heart from '../../../img/heart/heart.svg'
+import {useLocation} from "react-router-dom";
 
-const SearchInput = ({setModal,showButtonFavorite,saveRequest, youtubeTerm,setInputValue}) => {
+const SearchInput = ({setModal, showButtonFavorite, saveRequest, youtubeTerm, setInputValue}) => {
     const {currentRequest} = useSelector(state => state.videos)
+    const location = useLocation()
+
+
+
 
     const saveInputValue = (inputValue) => {
         saveRequest(inputValue)
     }
-
 
     const {
         handleSubmit,
@@ -24,27 +29,34 @@ const SearchInput = ({setModal,showButtonFavorite,saveRequest, youtubeTerm,setIn
     }
 
 
-    if(!currentRequest && showButtonFavorite){
-        return  <Loader/>
+    if (!currentRequest && showButtonFavorite) {
+        return <Loader/>
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div>Поиск видео</div>
-            <div className={cl.formContainer}>
-                <Controller
-                    render={({field, fieldState}) => {
-                        return <MyInputSearch showButtonFavorite={showButtonFavorite} saveInputValue={saveInputValue} type={"text"}
+            <div className={(location.pathname === "/search/videos") ? cl.formContainerVideos : cl.formContainer}>
+                <div className={(location.pathname === "/search/videos") ? cl.formTitleVideos : cl.formTitle}>Поиск видео</div>
+                <div className={(location.pathname === "/search/videos") ? cl.inputContainerVideos : cl.inputContainer}>
+                    <Controller render={({field, fieldState}) => {
+                        return <MyInputSearch showButtonFavorite={showButtonFavorite}
+                                              saveInputValue={saveInputValue} type={"text"}
                                               placeholder={"Что хотите посмотреть?"}
                                               field={field} setInputValue={setInputValue}/>;
-                    }}
-                    defaultValue={currentRequest}
-                    control={control}
-                    name="termFromSearchBar"
+                    }} defaultValue={(currentRequest) ? currentRequest : ''} control={control} name="termFromSearchBar"/>
 
-                />
-                {showButtonFavorite && <button onClick={() => setModal(true)} type={"button"} >Избранное</button>}
-                <button type={"submit"}>Найти</button>
+                    {showButtonFavorite &&
+                        <div className={cl.buttonFavorite}>
+                            <button onClick={() => setModal(true)} type={"button"}>
+                                <img src={heart} alt=""/>
+                            </button>
+                        </div>
+                    }
+                    <button className={cl.buttonSearchRequest} type={"submit"}>
+                        <span className={cl.searchButtonSpan}>Найти</span>
+                    </button>
+
+                </div>
             </div>
         </form>
     );

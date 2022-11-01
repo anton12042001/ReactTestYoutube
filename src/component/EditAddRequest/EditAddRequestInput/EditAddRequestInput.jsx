@@ -7,7 +7,7 @@ import {useState} from "react";
 import MySelectedEditAddRequest from "../../UI/MySelectedEditAddRequest/MySelectedEditAddRequest";
 
 const EditAddRequestInput = ({idItems, editRequestId, setShowPopapChange, showPopapChange, nameRequest,
-                                 showButtonFavorite, setModal, inputValue, saveRequest, }) => {
+                                 showButtonFavorite, setModal, inputValue, saveRequest,sortingValue }) => {
     const [sliderValue, setSliderValue] = useState(12);
     const [valueSelect,setValueSelet] = useState("relevance")
 
@@ -18,11 +18,15 @@ const EditAddRequestInput = ({idItems, editRequestId, setShowPopapChange, showPo
     } = useForm();
 
     const onSubmit = (data) => {
+        debugger
         if (showButtonFavorite) {
             saveRequest(data.request, sliderValue, valueSelect) //сохранение
         }
         if (idItems) {
-            editRequestId(data.request, sliderValue, valueSelect) //редакирование
+            debugger
+
+            console.log(sortingValue)
+            editRequestId(data.request, sliderValue, sortingValue) //редакирование
         }
 
     }
@@ -60,7 +64,8 @@ const EditAddRequestInput = ({idItems, editRequestId, setShowPopapChange, showPo
                 />
                 <Controller
                     render={({field, fieldState}) => {
-                        return <MySelectedEditAddRequest type={"text"} setValueSelet={setValueSelet} label={"Сортировка по"} field={field}/>;}}
+                        return <MySelectedEditAddRequest type={"text"} setValueSelet={setValueSelet} label={"Сортировка по"} sortingValue={sortingValue}
+                                                         field={field}/>;}}
                     control={control}
                     name="sorting"
                 />

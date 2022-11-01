@@ -20,6 +20,7 @@ const VideosContainer = () => {
     const [inputValue, setInputValue] = useState('')
 
 
+
     useEffect(() => {
         setInputValue(currentRequest)
     }, [currentRequest])
@@ -40,7 +41,7 @@ const VideosContainer = () => {
     }
 
 
-    if (videos.length === 0) {
+    if (videos.length === 0 || !currentRequest) {
         return <Loader/>
     }
 
@@ -58,11 +59,11 @@ const VideosContainer = () => {
                 <EditAddRequestPopap setModal={setModal} showButtonFavorite={showButtonFavorite} inputValue={inputValue}
                                      saveRequest={saveRequest}/>}
             {loadSaveRequest && <div>Запрос успешно сохранен</div>}
-
+            <div className={cl.requestVideo} >Видео по запросу «<span className={cl.currentRequest}>{currentRequest}</span>»</div>
             <div className={cl.videosArray}>
                 {videos.map(i =>
                     <Videos titleVideo={i.snippet.title} thumbnails={i.snippet.thumbnails.medium.url}
-                            channgelTitle={i.snippet.channelTitle} key={i.id.videoId}/>
+                            channelTitle={i.snippet.channelTitle} key={i.id.videoId}/>
                 )}
             </div>
         </div>

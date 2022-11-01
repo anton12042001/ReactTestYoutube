@@ -8,17 +8,19 @@ const Favorites = ({editRequest,favoriteQueries, showPopapChange, setShowPopapCh
 
     const [idItems, setIdItems] = useState(null)
     const [nameRequest,setNameRequest] = useState(null)
+    const [sortingValue,setSortingValue] = useState("")
 
 
-    const getId = (id,saveRequest) => {
+    const getId = (id,saveRequest,sorting) => {
+        setSortingValue(sorting)
         setShowPopapChange(true)
         setIdItems(id)
         setNameRequest(saveRequest)
 
     }
 
-    const editRequestId = (request,sliderValue,sorting) => {
-        editRequest(idItems,request,sliderValue,sorting)
+    const editRequestId = (request,sliderValue,sortingValue) => {
+        editRequest(idItems,request,sliderValue,sortingValue)
     }
 
 
@@ -41,6 +43,7 @@ const Favorites = ({editRequest,favoriteQueries, showPopapChange, setShowPopapCh
                     <EditAddRequestPopap editRequestId={editRequestId} setShowPopapChange={setShowPopapChange}
                                          showPopapChange={showPopapChange}
                                          idItems={idItems} nameRequest={nameRequest}
+                                         sortingValue={sortingValue}
                                          />
                 </div>
             }

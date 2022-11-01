@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MySelectedEditAddRequest = (props) => {
-
+console.log(props.sortingValue)
 
     const onChangeValue = (e) => {
         props.setValueSelet(e.target.value)
@@ -19,10 +19,10 @@ const MySelectedEditAddRequest = (props) => {
                 {...field}
                 onChange={onChangeValue}
             >
-                <option value="relevance">Без сортировки</option>
-                <option value="title">По алфавиту</option>
-                <option value="date">По дате</option>
-                <option value="viewCount">От наибольшего кол-во просмотров</option>
+                <option selected={(props.sortingValue) === "relevance" && "selected"} value="relevance">Без сортировки</option>
+                <option selected={(props.sortingValue) === "title" && "selected"}  value="title">По алфавиту</option>
+                <option selected={(props.sortingValue) === "date" && "selected"}  value="date">По дате</option>
+                <option selected={(props.sortingValue) === "viewCount" && "selected"}  value="viewCount">От наибольшего кол-во просмотров</option>
             </select>
         </div>
     );

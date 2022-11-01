@@ -4,6 +4,7 @@ import {singInAPI} from "../API/AuthorizationAPI";
 import {useDispatch} from "react-redux";
 import {setUser} from "../../reduxToolkit/slices/userSlice";
 import {useNavigate} from "react-router-dom";
+import cl from './Authorization.module.css'
 
 
 const AuthorizationContainer = () => {
@@ -22,7 +23,7 @@ const AuthorizationContainer = () => {
 
 
     return (
-        <div>
+        <div className={cl.authorizationWrapper} >
             <Authorization authorization={authorization}/>
         </div>
     );

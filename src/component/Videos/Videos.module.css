@@ -1,16 +1,62 @@
 .videosContainer{
     border: 1px solid black;
-    padding:50px 0 0 0;
-    width: 1350px;
+    padding:40px 0 0 0;
+    max-width: 1040px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .showVideo{
-    width: 320px;
+
+}
+.titleVideos{
+    margin: 0 0 8px 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #272727;
+}
+.chanelTitle{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(23, 23, 25, 0.3);
+    padding: 0 0 8px 0;
+}
+.showVideo img{
+    border-radius: 10px;
+    max-width: 245px;
+    max-height: 137px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+
 .videosArray{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 245px 245px 245px 245px;
+    row-gap: 28px;
+    column-gap: 20px;
+}
+.currentRequest{
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+.requestVideo{
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 20px 0;
+}
+@media(max-width: 1439px){
+    .videosArray{
+        display: grid;
+        grid-template-columns: 216px 216px 216px;
+        row-gap: 28px;
+        column-gap: 20px;
+    }
 }

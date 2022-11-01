@@ -10,7 +10,7 @@ const Search = ({youtubeRequest}) => {
     }
 
     return (
-        <div>
+        <div  className={cl.formWrapper} >
             <SearchInput youtubeTerm={youtubeTerm} />
         </div>
     );

@@ -17,6 +17,7 @@ export const getRequestInfo =  (dispatch,favoriteQueriesID) => {
                 sorting:docSnap.data().sorting,
                 id:docSnap.id
             }
+            console.log(middleElement.sorting)
             dispatch(setFavoriteQueries(middleElement))
         }
     })}

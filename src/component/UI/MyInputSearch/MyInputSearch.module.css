@@ -1,0 +1,45 @@
+.input{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0 0px 10px;
+    background: #FFFFFF;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #272727;
+    border: inherit;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    opacity: 0.3;
+    padding: 12px 10px 14px 15px;
+
+}
+
+.input:focus {
+    outline: rgba(197, 228, 249, 0.3);
+    border: 1px solid #1390E5;
+    border-radius: 10px 0 0px 10px;
+    background: rgba(197, 228, 249, 0.3);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    opacity: 1;
+    color: #272727;
+}
+
+@media(max-width: 767px){
+    .input{
+        max-width: 213px;
+        font-weight: 400;
+        font-size: 16px;
+        padding: 12px 10px 19px 15px;
+
+    }
+    .input:focus {
+        max-width: 213px;
+        font-weight: 400;
+        font-size: 16px;
+    }
+}

@@ -1,9 +1,22 @@
 .searchContainer {
-    width: 1500px;
-    border: 1px solid black;
-    margin: 0 auto;
+    max-width: 1040px;
+    max-height: 720px;
     height: 100%;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 220px 0 0 0;
+}
+.formWrapper{
+    max-width: 686px;
+    width: 100%;
+}
+@media(max-width: 767px){
+    .formWrapper{
+        max-width: 304px;
+    }
+    .searchContainer {
+        padding: 200px 0 0 0;
+    }
 }

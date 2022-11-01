@@ -3,7 +3,7 @@ import {initializeApp} from "firebase/app";
 import {firebaseConfig} from "../../firebase";
 
 
-export const editExistingRequestAPI = async (idItems,request,sliderValue,sorting) => {
+export const editExistingRequestAPI = async (idItems,request,sliderValue,sortingValue) => {
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -12,6 +12,6 @@ export const editExistingRequestAPI = async (idItems,request,sliderValue,sorting
     await updateDoc(existingRequestRef, {
         saveRequest: request,
         numberRequest:sliderValue,
-        sorting:sorting
+        sorting:sortingValue
     });
 }
