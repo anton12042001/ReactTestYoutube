@@ -54,7 +54,7 @@ const VideosContainer = () => {
 
 
     if (!videos || !currentRequest) {
-        return <Loader/>
+        return <div className={cl.containerLoader}><Loader/></div>
     }
     if(videos.length === 0){
         return <div className={cl.plug}>По вашему запросу

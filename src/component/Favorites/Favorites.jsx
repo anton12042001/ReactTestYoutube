@@ -23,6 +23,9 @@ const Favorites = ({editRequest,favoriteQueries, showPopapChange, setShowPopapCh
         editRequest(idItems,request,sliderValue,valueSelect,nameRequest)
     }
 
+    if(favoriteQueries.length === 0){
+        return  <div>В настоящий момент нет избранных запросов</div>
+    }
 
     return (
         <div>
