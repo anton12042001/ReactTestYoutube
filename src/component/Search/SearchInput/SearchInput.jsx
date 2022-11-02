@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Controller, useForm} from "react-hook-form";
 import MyInputSearch from "../../UI/MyInputSearch/MyInputSearch";
 import {useSelector} from "react-redux";
 import cl from './SearchInput.module.css'
 import Loader from "../../UI/Loader/Loader";
 import heart from '../../../img/heart/heart.svg'
+import heartActive from '../../../img/heart/heartActive.svg'
 import {useLocation} from "react-router-dom";
+import SaveModal from "../../Videos/SaveModal/SaveModal";
 
-const SearchInput = ({setModal, showButtonFavorite, saveRequest, youtubeTerm, setInputValue}) => {
+const SearchInput = ({setModal, showButtonFavorite, saveRequest, youtubeTerm, setInputValue,saveFavorite}) => {
     const {currentRequest} = useSelector(state => state.videos)
     const location = useLocation()
 
@@ -46,10 +48,12 @@ const SearchInput = ({setModal, showButtonFavorite, saveRequest, youtubeTerm, se
                     }} defaultValue={(currentRequest) ? currentRequest : ''} control={control} name="termFromSearchBar"/>
 
                     {showButtonFavorite &&
+
                         <div className={cl.buttonFavorite}>
                             <button onClick={() => setModal(true)} type={"button"}>
-                                <img src={heart} alt=""/>
+                                <img src={(saveFavorite) ? heartActive : heart}/>
                             </button>
+                            <div className={cl.saveFavoriteWrapper} >{(saveFavorite) && <SaveModal/>}</div>
                         </div>
                     }
                     <button className={cl.buttonSearchRequest} type={"submit"}>

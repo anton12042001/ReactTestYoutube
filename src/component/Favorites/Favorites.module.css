@@ -1,39 +1,52 @@
 .favoritesWrapper {
     width: 100%;
     height: 100%;
+
 }
 
 
 .favoritesContainer {
-
-    width: 1350px;
+    max-width: 1040px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .favoritesItemContainer {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    height: 35px;
+    max-width: 1040px;
+    height: 47px;
     width: 100%;
-    background: inherit;
-    margin: 0 0 5px 0;
+    background: #FFFFFF;
+    margin: 0 0 2px 0;
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    padding: 0 0 0 20px;
 }
 
 .favoritesTitle {
-    margin: 0 0 25px 0;
+    margin: 0 0 40px 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+    color: #000000;
 }
+
 
 .favoritesItemContainerActive {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
-    height: 35px;
+    max-width: 1040px;
+    height: 47px;
     width: 100%;
-    margin: 0 0 5px 0;
-    background: slategrey;
+    background: #F1F1F1;
+    margin: 0 0 2px 0;
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    padding: 0 0 0 20px;
 }
-
 .favoritesItemTitle {
     justify-content: space-between;
     font-weight: 700;
@@ -49,18 +62,76 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(222, 222, 222, 0.4);
+    background: rgba(117, 199, 255, 0.8);
     z-index: 50;
 }
 
 .favoritesItem {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
 }
+
+
+
+.buttonContainer{
+
+    height: 47px;
+}
+
+
+
+
+
 .blockButtonFuntional{
     display: flex;
     justify-items: center;
     align-items: center;
+    max-height: 47px;
+    height: 100%;
+}
+.buttonChange{
+    height: 47px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1390E5;
+    background: inherit;
+    margin: 0 30px 0 0;
+    border: inherit;
+}
+.buttonDelete{
+    border: inherit;
+    height: 47px;
+    background: inherit;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FF0000;
+    margin: 0 20px 0 0;
 }
 
 
+.wideScreens{
+display: inherit;
+}
+.narrowScreens{
+display: none;
+}
+@media (max-width: 767px) {
+    .narrowScreens{
+        display: inherit;
+    }
+    .wideScreens{
+        display: none;
+    }
+}
+.containerLoader{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

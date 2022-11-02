@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import RangeSlider from "./RangeSlider";
+import cl from './RangeSlider.module.css'
+
 
 const RangeSliderContainer = ({sliderValue, setSliderValue}) => {
     const [sliderProps, setSliderProps] = useState({
@@ -7,19 +9,20 @@ const RangeSliderContainer = ({sliderValue, setSliderValue}) => {
         max: 50,
         value: 12,
     });
-
+    const [sliderFullness, setSliderFullness] = useState(24)
 
     const handleSliderChange = (e) => {
-        if(e.target){
+        if (e.target) {
             setSliderValue(e.target.value);
+            setSliderFullness(e.target.value / 50 * 100)
         }
     };
 
 
     return (
         <RangeSlider
+            sliderFullness={sliderFullness}
             {...sliderProps}
-            classes=""
             value={sliderValue}
             onChange={handleSliderChange}/>
 

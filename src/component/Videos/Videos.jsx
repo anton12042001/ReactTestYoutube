@@ -1,12 +1,14 @@
 import React from 'react';
 import cl from './Videos.module.css'
 
-const Videos = ({titleVideo, thumbnails, channelTitle}) => {
+const Videos = ({titleVideo, thumbnails, channelTitle,viewSwitcherGrid}) => {
     return (
-        <div className={cl.showVideo}>
+        <div className={(viewSwitcherGrid) ? cl.showVideoGrid : cl.showVideoList  }>
             <img src={thumbnails}/>
-            <div className={cl.titleVideos} >{titleVideo}</div>
-            <div className={cl.chanelTitle} >{channelTitle}</div>
+            <div>
+                <div className={cl.titleVideos} >{titleVideo}</div>
+                <div className={cl.chanelTitle} >{channelTitle}</div>
+            </div>
         </div>
     );
 };

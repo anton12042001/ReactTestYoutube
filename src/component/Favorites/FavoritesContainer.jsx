@@ -8,7 +8,6 @@ import {removeFavoriteQueries, setFavoriteQueries} from "../../reduxToolkit/slic
 import {utilsFavoriteRequest} from "../utils/utilsVideosRequest/utilsFavoriteRequest";
 import {useNavigate} from "react-router-dom";
 import {deleteFoviritesRequestAPI} from "../API/deleteFavoritesRequestAPI";
-import {favirutesUtuls} from "./FavoritesUtils";
 import Loader from "../UI/Loader/Loader";
 
 const FavoritesContainer = () => {
@@ -18,13 +17,19 @@ const FavoritesContainer = () => {
     const {videos} = useSelector(state => state.videos)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
+    const [countRequest, setCointRequest] = useState(0)
 
 
     useEffect(() => {
-        getRequestInfo(dispatch, favoriteQueriesID)
-
-
-    }, [favoriteQueriesID])
+        if (favoriteQueries.length > 0) {
+            dispatch(removeFavoriteQueries())
+            setCointRequest(favoriteQueries.length)
+        }
+        if(countRequest === 0){
+            getRequestInfo(dispatch, favoriteQueriesID, setLoading, favoriteQueries)
+        }
+    }, [favoriteQueriesID,countRequest])
 
 
     const youtubeSearchOrder = (id) => {
@@ -32,13 +37,12 @@ const FavoritesContainer = () => {
     }
 
     const deleteFavoritesRequest = (id) => {
-
         deleteFoviritesRequestAPI(id)
             .then(() => {
                 const deleteElement = [...favoriteQueries]
                 dispatch(removeFavoriteQueries())
                 deleteElement.map(e => {
-                    if(e.id !== id) {
+                    if (e.id !== id) {
                         dispatch(setFavoriteQueries(e))
                     }
                 })
@@ -46,31 +50,39 @@ const FavoritesContainer = () => {
     }
 
 
-    const editRequest = (idItems, request, sliderValue, sortingValue) => {
-        editExistingRequestAPI(idItems, request, sliderValue, sortingValue)
+    const editRequest = (idItems, request, sliderValue, valueSelect, nameRequest) => {
+        editExistingRequestAPI(idItems, request, sliderValue, valueSelect, nameRequest)
             .then(() => {
+                setLoading(true)
+                setShowPopapChange(false)
                 dispatch(removeFavoriteQueries())
                 favoriteQueries.map(i => {
                     const middleElement = {
                         id: i.id,
                         numberRequest: i.numberRequest,
                         saveRequest: i.saveRequest,
-                        sorting:i.sorting
+                        sorting: i.sorting,
+                        nameRequest: i.nameRequest
                     }
                     if (i.id === idItems) {
                         middleElement.saveRequest = request
+                        middleElement.nameRequest = nameRequest
+                        middleElement.sorting = valueSelect
                         dispatch(setFavoriteQueries(middleElement))
                     } else {
                         dispatch(setFavoriteQueries(middleElement))
                     }
                 })
-                setShowPopapChange(false)
+                setLoading(false)
             })
     }
 
 
-    if(favoriteQueries.length === 0) {
-        return <Loader/>
+    if (!favoriteQueries) {
+        return <div className={cl.containerLoader}><Loader/></div>
+    }
+    if (loading) {
+        return <div className={cl.containerLoader}><Loader/></div>
     }
     return (
         <div className={cl.favoritesWrapper}>

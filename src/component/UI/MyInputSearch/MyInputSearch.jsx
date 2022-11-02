@@ -22,7 +22,7 @@ const MyInputSearch = (props) => {
 
     return (
             <input
-                className={cl.input}
+                className={(location.pathname === "/search/videos") ? cl.inputVideos : cl.input }
                 placeholder={props.placeholder}
                 {...fieldState}
                 {...field}

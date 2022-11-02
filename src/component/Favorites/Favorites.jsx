@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import cl from "./Favorites.module.css";
 import EditAddRequestPopap from "../EditAddRequest/EditAddRequestPopap/EditAddRequestPopap";
-import FavoritesList from "./FavoritesList";
+import FavoritesList from "./FavoritesList/FavoritesList";
 
 const Favorites = ({editRequest,favoriteQueries, showPopapChange, setShowPopapChange,youtubeSearchOrder,deleteFavoritesRequest}) => {
 
@@ -19,8 +19,8 @@ const Favorites = ({editRequest,favoriteQueries, showPopapChange, setShowPopapCh
 
     }
 
-    const editRequestId = (request,sliderValue,sortingValue) => {
-        editRequest(idItems,request,sliderValue,sortingValue)
+    const editRequestId = (request,sliderValue,valueSelect,nameRequest) => {
+        editRequest(idItems,request,sliderValue,valueSelect,nameRequest)
     }
 
 
@@ -28,6 +28,7 @@ const Favorites = ({editRequest,favoriteQueries, showPopapChange, setShowPopapCh
         <div>
             <div>
                 {favoriteQueries.map(r => <FavoritesList
+                    nameRequest={r.nameRequest}
                     deleteFavoritesRequest={deleteFavoritesRequest}
                     saveRequest={r.saveRequest}
                     sorting={r.sorting}

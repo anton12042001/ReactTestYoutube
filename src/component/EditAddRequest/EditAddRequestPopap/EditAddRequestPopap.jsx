@@ -8,7 +8,7 @@ const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,i
 
     return (
         <div onClick={(e) => e.stopPropagation()} className={cl.popapItem} >
-            <div>
+
                 <EditAddRequestInput
                     idItems={idItems}
                     editRequestId={editRequestId}
@@ -21,7 +21,7 @@ const EditAddRequestPopap = ({editRequestId,setShowPopapChange,showPopapChange,i
                     saveRequest={saveRequest}
                     sortingValue={sortingValue}
                     />
-            </div>
+
         </div>
     );
 };

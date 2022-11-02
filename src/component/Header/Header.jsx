@@ -36,7 +36,7 @@ const Header = () => {
         return (
             <div className={cl.header}>
                 <div className={cl.userNavigate} >
-                    <div className={cl.headerSibLogo} ><img src={sibLogo} alt=""/></div>
+                    <div onClick={() => navigate('/search') } className={cl.headerSibLogo} ><img src={sibLogo} alt=""/></div>
                     <div className={cl.userFunctional}>
                         <button className={(location.pathname === '/search') || (location.pathname === '/search/videos')
                             ? cl.buttonSearchActive

@@ -5,7 +5,7 @@ import {setFavoriteQueriesID} from "../../reduxToolkit/slices/favoriteQueriesIDS
 import {setFavoriteQueries} from "../../reduxToolkit/slices/favoriteQueriesSlices";
 import {setCurrentRequest} from "../../reduxToolkit/slices/videosSlice";
 
-export const saveRequestAPI = async (dispatch, id,request,sliderValue,setModal,sorting) => {
+export const saveRequestAPI = async (dispatch, id,request,sliderValue,setModal,sorting,nameRequest) => {
 
    const saveRequestUser = []
     const app = initializeApp(firebaseConfig);
@@ -17,7 +17,8 @@ export const saveRequestAPI = async (dispatch, id,request,sliderValue,setModal,s
     const userRequestRef = await addDoc(collection(db, "request"), {  //Создание коллекции сохраненных запросов
         saveRequest: request,                                                   //для определенного пользователя
         numberRequest: sliderValue,
-        sorting:sorting
+        sorting:sorting,
+        nameRequest:nameRequest,
     })
     if (docSnap.exists()) {                                                     //Получение id сохраненных запросов пользователя с сервера
         docSnap.data().saveRequest.map(r => {                                   // и сохранение в массив
@@ -26,12 +27,14 @@ export const saveRequestAPI = async (dispatch, id,request,sliderValue,setModal,s
     }
     saveRequestUser.push(userRequestRef.id)                                     //Добавление в массив нового запроса для сохранения
     await updateDoc(docRef, {                                              //Загрузка на сервер сохраненных запросов
-        saveRequest:saveRequestUser
+        saveRequest:saveRequestUser,
+        nameRequest:nameRequest
     });
     const middleElement = {
         saveRequest: request,                                                   //для определенного пользователя
         numberRequest: sliderValue,
         sorting:sorting,
+        nameRequest:nameRequest,
         id:docSnap.data().id,
     }
     dispatch(setFavoriteQueriesID(saveRequestUser))

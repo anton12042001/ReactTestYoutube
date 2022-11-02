@@ -1,7 +1,7 @@
 import React from 'react';
+import cl from './MySelectedEditAddRequest.module.css'
 
 const MySelectedEditAddRequest = (props) => {
-console.log(props.sortingValue)
 
     const onChangeValue = (e) => {
         props.setValueSelet(e.target.value)
@@ -12,12 +12,12 @@ console.log(props.sortingValue)
 
 
     return (
-        <div>
-            <label>{props.label}</label>
+        <div className={cl.selectContainer} >
             <select
                 {...fieldState}
                 {...field}
                 onChange={onChangeValue}
+                className={cl.select}
             >
                 <option selected={(props.sortingValue) === "relevance" && "selected"} value="relevance">Без сортировки</option>
                 <option selected={(props.sortingValue) === "title" && "selected"}  value="title">По алфавиту</option>

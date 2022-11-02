@@ -10,7 +10,6 @@ const favoriteQueriesSlices = createSlice({
     initialState,
     reducers: {
         setFavoriteQueries(state,action) {
-            debugger
             state.favoriteQueries.push(action.payload)
         },
         removeFavoriteQueries(state) {

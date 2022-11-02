@@ -1,10 +1,10 @@
 .headerContainer {
     width: 100%;
-
+    background: white;
 }
 
 .header {
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
     height: 80px;
     max-width: 1040px;
     width: 100%;

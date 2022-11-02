@@ -12,11 +12,12 @@ const SearchContainer = () => {
     const navigate = useNavigate()
     const {videos, currentRequest} = useSelector(state => state.videos)
     const {id} = useSelector(state => state.user)
+    const {favoriteQueries} = useSelector(state => state.favoriteQueries)
 
 
     useEffect(() => {
         dispatch(removeVideoInfo())
-        getFavoritesRequestIdAPI(id,dispatch)
+        getFavoritesRequestIdAPI(id, dispatch)
     }, [])
 
 
@@ -25,7 +26,6 @@ const SearchContainer = () => {
         navigate('/search/videos')
         dispatch(setCurrentRequest(termFromSearchBar))
     }
-
 
     return (
         <div className={cl.searchContainer}>

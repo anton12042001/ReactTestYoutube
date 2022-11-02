@@ -66,12 +66,16 @@
     line-height: 24px;
     text-align: center;
     color: #FFFFFF;
-
+}
+.saveFavoriteWrapper{
+    position: absolute;
+    top: 30px;
+    left:-99px ;
 }
 
 .buttonFavorite {
     position: absolute;
-    right: 165px;
+    right: 147px;
     top: 14px;
 }
 
@@ -88,5 +92,10 @@
     .searchButtonSpan {
         font-weight: 400;
         font-size: 16px;
+    }
+    .buttonFavorite {
+        position: absolute;
+        right: 110px;
+        top: 14px;
     }
 }
