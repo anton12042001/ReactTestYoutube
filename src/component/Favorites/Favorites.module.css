@@ -48,6 +48,7 @@
     padding: 0 0 0 20px;
 }
 .favoritesItemTitle {
+    max-width: 300px;
     justify-content: space-between;
     font-weight: 700;
     display: flex;
@@ -120,6 +121,13 @@ display: inherit;
 display: none;
 }
 @media (max-width: 767px) {
+    .favoritesItemTitle{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        padding: 10px 5px 0 0px;
+    }
     .narrowScreens{
         display: inherit;
     }

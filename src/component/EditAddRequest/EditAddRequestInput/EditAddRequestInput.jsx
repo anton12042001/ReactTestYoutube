@@ -12,7 +12,6 @@ const EditAddRequestInput = ({
                              }) => {
     const [sliderValue, setSliderValue] = useState(12);
     const [valueSelect, setValueSelet] = useState("relevance")
-    console.log(valueSelect)
     const {
         handleSubmit,
         control
@@ -21,13 +20,10 @@ const EditAddRequestInput = ({
     })
 
     const onSubmit = (data) => {
-        debugger
         if (showButtonFavorite) {
             saveRequest(data.request, sliderValue, valueSelect,data.nameRequest) //сохранение
         }
         if (idItems) {
-            debugger
-            console.log(valueSelect)
             editRequestId(data.request, sliderValue, valueSelect, data.nameRequest) //редакирование
         }
 

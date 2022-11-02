@@ -18,8 +18,9 @@ const FavoritesContainer = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+    const {id} = useSelector(state => state.user)
     const [countRequest, setCointRequest] = useState(0)
-
+    const idUser = id
 
     useEffect(() => {
         if (favoriteQueries.length > 0) {
@@ -37,7 +38,7 @@ const FavoritesContainer = () => {
     }
 
     const deleteFavoritesRequest = (id) => {
-        deleteFoviritesRequestAPI(id)
+        deleteFoviritesRequestAPI(id,idUser)
             .then(() => {
                 const deleteElement = [...favoriteQueries]
                 dispatch(removeFavoriteQueries())

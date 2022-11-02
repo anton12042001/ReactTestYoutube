@@ -12,7 +12,6 @@ const SearchContainer = () => {
     const navigate = useNavigate()
     const {videos, currentRequest} = useSelector(state => state.videos)
     const {id} = useSelector(state => state.user)
-    const {favoriteQueries} = useSelector(state => state.favoriteQueries)
 
 
     useEffect(() => {

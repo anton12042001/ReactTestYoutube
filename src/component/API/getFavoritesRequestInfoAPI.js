@@ -8,7 +8,6 @@ export const getRequestInfo = (dispatch, favoriteQueriesID, setLoading, favorite
     dispatch(removeFavoriteQueries())
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    debugger
 
         favoriteQueriesID.map(async (r) => {
             debugger
