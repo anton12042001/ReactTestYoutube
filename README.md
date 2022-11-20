@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Getting Started with create youtube sibdev
+
+### Application implemented on ReactJS/Redux Toolkit/Firebase
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![image](https://user-images.githubusercontent.com/98453976/202881355-08690e20-c726-4d08-9a01-5d3c4272f478.png)
+![image](https://user-images.githubusercontent.com/98453976/202881362-ef69c3dc-e11f-4989-8ab1-5e334cf6b9bd.png)
+![image](https://user-images.githubusercontent.com/98453976/202881368-76b0ff38-5c21-4da2-a202-2879b8653699.png)
+![image](https://user-images.githubusercontent.com/98453976/202881895-3bb2ec66-8fa4-4801-b246-ae5bc3b6e690.png)
+![image](https://user-images.githubusercontent.com/98453976/202881377-3fa21d0e-4d9f-43d6-9d71-f544ddcd60c8.png)
+![image](https://user-images.githubusercontent.com/98453976/202881383-4cc4c80b-0767-45fc-869f-4cecdfd31549.png)
+
+
+
+
+## Functional
+
+Authorization using a database where the username and password are stored; video search, video list display, the ability to add a request to "Favorites".
+
+The app is also adapted for mobile devices.
+
+
 ## Available Scripts
 
-In the project directory, you can run:
+To start the project you will need:
 
+Contact me so that I can send you an access key with a database (it will not work without a key)
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Data from test accounts:
 
-### `npm test`
+testAccount1@mail.ru
+q12we34r
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+testAccount2@mail.ru
+q12we34r
 
-### `npm run build`
+## Must Read
+PLEASE NOTE, this is just some reference code - I will not be supporting it, adding new platforms, fixing bugs, or anything like that - but feel free to browse :)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web AppSpare
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
